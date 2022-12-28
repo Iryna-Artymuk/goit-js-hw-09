@@ -12,7 +12,7 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    counttime();
+    // counttime();
   },
 };
 
@@ -20,7 +20,6 @@ const choosenDate = flatpickr('#datetime-picker', options);
 
 // const targetDate = new Date(choosenDate.selectedDates[0].getDate());
 const targetDate = choosenDate.selectedDates[0].getTime();
-
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -48,18 +47,16 @@ function updateTextContent(time) {
   sec.textContent = time.seconds;
 }
 
-
 function counttime() {
+  const currentDate = Date.now();
 
-    const currentDate = Date.now();
+  const deltaTime = targetDate - currentDate;
+  console.log(deltaTime);
+  console.log(currentDate);
+  console.log(targetDate);
 
-    const deltaTime = targetDate - currentDate;
-    console.log(currentDate)
-    console.log( targetDate )
+  const time = convertMs(deltaTime);
 
-    const time = convertMs(deltaTime);
-    console.log(deltaTime);
-    console.log(time);
-    updateTextContent(time) 
-
+  console.log(time);
+  updateTextContent(time);
 }
