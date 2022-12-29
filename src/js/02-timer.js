@@ -23,6 +23,15 @@ const options = {
     targetDate = selectedDates[0].getTime();
   
   },
+  onChange(selectedDates) {
+    if (selectedDates[0].getTime() < new Date().getTime() ) {
+      Notify.failure('Please, pick  the date in the future', {
+        width: '520px', height: '520px',
+        borderRadius: '8px', position: 'center-top',
+      })
+    }
+   
+  }
 };
 
 flatpickr('#datetime-picker', options);
@@ -64,10 +73,7 @@ function countLeftTime() {
    
      deltaTime = targetDate - currentDate;
      if (deltaTime < 0) {
-      Notify.failure('Please, pick  the date in the future', {
-        width: '520px', height: '520px',
-        borderRadius: '8px', position: 'center-top',
-      })
+    
       timer.innerHTML = " TIME EXPIRED";
       clearInterval( timerId)
       return 
