@@ -25,9 +25,11 @@ const options = {
   },
   onChange(selectedDates) {
     if (selectedDates[0].getTime() < new Date().getTime() ) {
-      Notify.failure('Please, pick  the date in the future', {
-        width: '520px', height: '520px',
-        borderRadius: '8px', position: 'center-top',
+      Notify.failure('Please, pick  the date in the future',
+        {
+        width: '620px', 
+        borderRadius: '10px',
+        position: 'center-top',
       })
     }
    
