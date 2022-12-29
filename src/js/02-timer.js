@@ -18,15 +18,16 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-  
+    console.log(choosenDate.selectedDates[0])
   },
 };
 
 const choosenDate = flatpickr('#datetime-picker', options);
-// const date = choosenDate.selectedDates[0].toDateString()
-// console.log(date)
-// const targetDate = new Date(date).getTime();
-// console.dir(targetDate)
+
+
+// const targetDate = choosenDate.selectedDates[0].getTime();
+// console.dir(choosenDate)
+
 // console.log(targetDate)
     const targetDate = new Date('2022-12-31 23:59:59').getTime();
 function convertMs(ms) {
