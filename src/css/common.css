@@ -16,3 +16,74 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* #stopwatch {
+  min-width: 600px;
+
+  margin: 100px auto;
+  background: red;
+  color: #333;
+  border-radius: 10px;
+  padding: 60px 50px 100px;
+  text-align: center;
+  font-size: 30px;
+
+}
+.timer{
+
+display: flex;
+justify-content: center;
+
+}
+.field {
+  border: 1px solid #212121;
+display: flex;
+flex-direction: column;
+
+margin-left: 20px;
+
+}
+.field span {
+  background: #c7e0f8;
+  color: #0776de;
+  padding: 10px;
+
+  border-radius: 5px;
+  margin: 3px;
+  display: inline-block;
+  /* margin-left: 20px; */
+/* } */
+
+.title{
+  margin-bottom: 60px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* .value{
+  transform: rotate(90deg);
+} */ 
+/* *{background-color:#000;}
+div{margin:0 auto;} */
+.timer{
+  width: 100%;
+  padding: 1em 0.5em;
+  border: 20px solid;
+  border-image: linear-gradient(45deg, gold, deeppink) 1;
+  clip-path: inset(0px round 2px);
+  animation: huerotate 6s infinite linear;
+  filter: hue-rotate(360deg);
+  background-color: black;
+  color: #52ACCC;
+  text-align: center;
+  font-size: 60px;
+  visibility: hidden;
+}
+
+.title{
+  text-align: center;
+  font-size: 50px;
+  color: #52ACCC;
+}
+
+

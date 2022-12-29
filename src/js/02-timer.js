@@ -1,25 +1,31 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+const body = document.querySelector(' body')
+const inputWrap = document.querySelector('.input-wrap')
 
+const timer = document.querySelector('.timer');
 const days = document.querySelector('[data-days]');
 const hours = document.querySelector('[data-hours]');
 const min = document.querySelector('[data-minutes]');
 const sec = document.querySelector('[ data-seconds]');
+const start = document.querySelector('[ data-start]');
+let timerId = null;
+start.addEventListener('click',countLeftTime)
 
-const options = {
-  enableTime: true,
-  time_24hr: true,
-  defaultDate: new Date(),
-  minuteIncrement: 1,
-  onClose(selectedDates) {
-    // counttime();
-  },
-};
+// const options = {
+//   enableTime: true,
+//   time_24hr: true,
+//   defaultDate: new Date(),
+//   minuteIncrement: 1,
+//   onClose(selectedDates) {
+//     // counttime();
+//   },
+// };
 
-const choosenDate = flatpickr('#datetime-picker', options);
+// const choosenDate = flatpickr('#datetime-picker', options);
 
 // const targetDate = new Date(choosenDate.selectedDates[0].getDate());
-const targetDate = choosenDate.selectedDates[0].getTime();
+// const targetDate = choosenDate.selectedDates[0].getTime();
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -47,16 +53,26 @@ function updateTextContent(time) {
   sec.textContent = time.seconds;
 }
 
-function counttime() {
-  const currentDate = Date.now();
 
-  const deltaTime = targetDate - currentDate;
-  console.log(deltaTime);
-  console.log(currentDate);
-  console.log(targetDate);
+function countLeftTime() {
+  body.style.backgroundColor = ' #000'
+  timer.style.visibility='visible';
+  inputWrap.innerHTML=""
+ timerId= setInterval(() => {
+    const targetDate = new Date('2022-12-31 23:59:59').getTime();
 
-  const time = convertMs(deltaTime);
+const currentDate = Date.now()
 
-  console.log(time);
-  updateTextContent(time);
+const deltaTime = targetDate - currentDate;
+
+const countTime= convertMs(deltaTime )
+    if (deltaTime < 0) {
+      clearInterval(timerId)
+      timer.innerHTML = " TIME EXPIRED";
 }
+
+  updateTextContent(countTime);
+  },1000)
+
+}
+
