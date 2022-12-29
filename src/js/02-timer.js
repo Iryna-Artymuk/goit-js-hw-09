@@ -12,17 +12,17 @@ const start = document.querySelector('[ data-start]');
 let timerId = null;
 start.addEventListener('click',countLeftTime)
 
-const options = {
-  enableTime: true,
-  time_24hr: true,
-  defaultDate: new Date(),
-  minuteIncrement: 1,
-  onClose(selectedDates) {
-    console.log(choosenDate.selectedDates[0])
-  },
-};
+// const options = {
+//   enableTime: true,
+//   time_24hr: true,
+//   defaultDate: new Date(),
+//   minuteIncrement: 1,
+//   onClose(selectedDates) {
+//     console.log(choosenDate.selectedDates[0])
+//   },
+// };
 
-const choosenDate = flatpickr('#datetime-picker', options);
+// const choosenDate = flatpickr('#datetime-picker', options);
 
 
 // const targetDate = choosenDate.selectedDates[0].getTime();
