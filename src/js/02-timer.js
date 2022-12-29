@@ -12,21 +12,23 @@ const start = document.querySelector('[ data-start]');
 let timerId = null;
 start.addEventListener('click',countLeftTime)
 
-// const options = {
-//   enableTime: true,
-//   time_24hr: true,
-//   defaultDate: new Date(),
-//   minuteIncrement: 1,
-//   onClose(selectedDates) {
-//     // counttime();
-//   },
-// };
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+  
+  },
+};
 
-// const choosenDate = flatpickr('#datetime-picker', options);
-
-// const targetDate = new Date(choosenDate.selectedDates[0].getDate());
-// const targetDate = choosenDate.selectedDates[0].getTime();
-
+const choosenDate = flatpickr('#datetime-picker', options);
+// const date = choosenDate.selectedDates[0].toDateString()
+// console.log(date)
+// const targetDate = new Date(date).getTime();
+// console.dir(targetDate)
+// console.log(targetDate)
+    const targetDate = new Date('2022-12-31 23:59:59').getTime();
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -59,7 +61,7 @@ function countLeftTime() {
   timer.style.visibility='visible';
   inputWrap.innerHTML=""
  timerId= setInterval(() => {
-    const targetDate = new Date('2022-12-31 23:59:59').getTime();
+
 
 const currentDate = Date.now()
 
