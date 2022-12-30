@@ -11,7 +11,7 @@ button:document.querySelector('button'),
 ref.form.addEventListener('submit', onSubmit)
 
 let position = 1;
-let isActive= false
+
 function createPromise(position, delay) {
   const promise = new Promise((res, rej) => {
     const shouldResolve = Math.random() > 0.3;
