@@ -46,7 +46,7 @@ function onSubmit(event) {
   
       createPromise(position, promiseDelay)
         .then((result) => {
-          Notify.success(`✅ Fulfilled promise ${result.position} in ${result.delay}ms`,
+          Notify.success(`Fulfilled promise ${result.position} in ${result.delay}ms`,
             {
             width: '550px', 
             borderRadius: '10px',
@@ -57,7 +57,7 @@ function onSubmit(event) {
           })
         })
         .catch((err) => {
-          Notify.failure(` ❌ Rejected promise ${err.position} in ${err.delay}ms`,
+          Notify.failure(`Rejected promise ${err.position} in ${err.delay}ms`,
             {
             width: '500px', 
             borderRadius: '10px',
