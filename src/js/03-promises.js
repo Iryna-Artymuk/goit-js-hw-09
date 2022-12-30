@@ -49,9 +49,9 @@ function onSubmit(event) {
           Notify.success(`Fulfilled promise ${result.position} in ${result.delay}ms`,
             {
             width: '550px', 
-            borderRadius: '10px',
+            borderRadius: '20px',
               position: 'center-top',
-              timeout: 5000,
+            
               distance: '25px',
               fontSize:'25px'
           })
@@ -59,11 +59,11 @@ function onSubmit(event) {
         .catch((err) => {
           Notify.failure(`Rejected promise ${err.position} in ${err.delay}ms`,
             {
-            width: '500px', 
-            borderRadius: '10px',
+            width: '550px', 
+            borderRadius: '20px',
               position: 'center-top',
               distance: '25px',
-              timeout: 5000,
+           
               fontSize:'25px'
           })
         });
