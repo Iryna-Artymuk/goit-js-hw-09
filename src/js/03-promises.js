@@ -48,9 +48,12 @@ function onSubmit(event) {
         .then((result) => {
           Notify.success(`✅ Fulfilled promise ${result.position} in ${result.delay}ms`,
             {
-            width: '500px', 
+            width: '550px', 
             borderRadius: '10px',
-            position: 'center-top',
+              position: 'center-top',
+              timeout: 5000,
+              distance: '25px',
+              fontSize:'25px'
           })
         })
         .catch((err) => {
@@ -58,7 +61,10 @@ function onSubmit(event) {
             {
             width: '500px', 
             borderRadius: '10px',
-            position: 'center-top',
+              position: 'center-top',
+              distance: '25px',
+              timeout: 5000,
+              fontSize:'25px'
           })
         });
      
