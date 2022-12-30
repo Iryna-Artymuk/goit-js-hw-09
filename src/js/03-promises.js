@@ -51,7 +51,6 @@ function onSubmit(event) {
             width: '550px', 
             borderRadius: '20px',
               position: 'center-top',
-            
               distance: '25px',
               fontSize:'25px'
           })
@@ -63,15 +62,14 @@ function onSubmit(event) {
             borderRadius: '20px',
               position: 'center-top',
               distance: '25px',
-           
               fontSize:'25px'
           })
         });
      
       if (position === promiseAmount) {
-        clearInterval(promiseId)
         ref.button.disabled = false;
-        reset(delay, step, amount )
+        ref.form.reset()
+        clearInterval(promiseId)
         return 
        
     
@@ -84,8 +82,8 @@ function onSubmit(event) {
   
   }
  
-function reset( delay, step, amount ) {
-  delay.value=""
-  step.value=""
-  amount.value=""
-}
+// function reset( delay, step, amount ) {
+//   delay.value=""
+//   step.value=""
+//   amount.value=""
+// }
