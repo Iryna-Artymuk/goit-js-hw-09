@@ -11,7 +11,13 @@ button:document.querySelector('button'),
 ref.form.addEventListener('submit', onSubmit)
 
 let position = 1;
-
+const option = {
+  width: '550px', 
+  borderRadius: '20px',
+    position: 'center-top',
+    distance: '25px',
+    fontSize:'25px'
+}
 function createPromise(position, delay) {
   const promise = new Promise((res, rej) => {
     const shouldResolve = Math.random() > 0.3;
@@ -29,6 +35,8 @@ function createPromise(position, delay) {
 
 function onSubmit(event) {
   ref.button.disabled = true
+ 
+
     event.preventDefault();
     const{elements: { delay, step, amount }}=event.currentTarget
   
@@ -37,38 +45,30 @@ function onSubmit(event) {
     let promiseAmount= Number(amount.value)
   
   
-    console.log(promiseDelay)
-    console.log(promiseStep)
-    console.log(promiseAmount)
+
    
     const promiseId= setInterval(() => {
   
   
       createPromise(position, promiseDelay)
         .then((result) => {
-          Notify.success(`Fulfilled promise ${result.position} in ${result.delay}ms`,
-            {
-            width: '550px', 
-            borderRadius: '20px',
-              position: 'center-top',
-              distance: '25px',
-              fontSize:'25px'
-          })
+          Notify.success(`Fulfilled promise ${result.position} in ${result.delay}ms`,option)
         })
         .catch((err) => {
-          Notify.failure(`Rejected promise ${err.position} in ${err.delay}ms`,
-            {
-            width: '550px', 
-            borderRadius: '20px',
-              position: 'center-top',
-              distance: '25px',
-              fontSize:'25px'
-          })
-        });
+          Notify.failure(`Rejected promise ${err.position} in ${err.delay}ms`,option )
+        }).finally(()=>{
+          ref.form.reset()
+          console.log(promiseDelay)
+          console.log(promiseStep)
+          console.log(promiseAmount)
+      
+        })
+         
+      
      
       if (position === promiseAmount) {
+        position=1
         ref.button.disabled = false;
-        ref.form.reset()
         clearInterval(promiseId)
         return 
        
